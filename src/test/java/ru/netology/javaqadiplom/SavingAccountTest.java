@@ -89,6 +89,20 @@ public class SavingAccountTest {
     }
 
     @Test
+    public void shouldAddPayNegative() {
+        SavingAccount account = new SavingAccount(
+                2_000,
+                1_000,
+                10_000,
+                5
+        );
+
+        account.pay(-500);
+
+        Assertions.assertEquals(1_500, 1_500);
+    }
+
+    @Test
     public void shouldAddPayZero() {
         SavingAccount account = new SavingAccount(
                 2_000,
@@ -150,6 +164,30 @@ public class SavingAccountTest {
         );
 
         Assertions.assertEquals(360, account.yearChange());
+    }
+
+    @Test
+    public void shouldAddMinBalance() {
+        SavingAccount account = new SavingAccount(
+                2_000,
+                1_000,
+                10_000,
+                5
+        );
+
+        Assertions.assertEquals(1_000, account.getMinBalance());
+    }
+
+    @Test
+    public void shouldAddMaxBalance() {
+        SavingAccount account = new SavingAccount(
+                2_000,
+                1_000,
+                10_000,
+                5
+        );
+
+        Assertions.assertEquals(10_000, account.getMaxBalance());
     }
 
 }
