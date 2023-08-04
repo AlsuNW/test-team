@@ -159,4 +159,13 @@ public class CreditAccountTest {
             CreditAccount account = new CreditAccount(1_000, -1_000, 15);
         });
     }
+
+    @Test
+    public void shouldNotThrowExceptionIfRate0() {
+            CreditAccount account = new CreditAccount(1_000, 5_000, 0);
+
+            int expected = 0;
+            int actual = account.getRate();
+            Assertions.assertEquals(expected, actual);
+    }
 }
